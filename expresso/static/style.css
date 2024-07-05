@@ -1,0 +1,12 @@
+body{
+    background-color: rgb(5, 5, 5);
+    color:rgb(0, 99, 248);
+    /* rgba(33, 185, 114, 0.808);*/
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+}
+
+h1{
+    text-align: center;
+    font-size: 2em;
+}
