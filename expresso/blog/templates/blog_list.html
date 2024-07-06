@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block  title %}
+ALL BLOGS
+{% endblock  %}
+
+{% block content %}
+<h1 class="text-center mt-4"> Share your Interview Experience now! </h1>
+
+<a class ="btn btn-primary mb-4" href="{% url 'blog_create'%}"> Create a new Article</a>
+<br>
+<div class="container row gap-3 col gap-3">
+    {% for blog in blogs  %}
+    <div class="card" style="width: 18rem; padding: auto;">
+        <img src="{{blog.photo.url}}" class="card-img-top">
+        <div class="card-body">
+          <h4 class="card-title">{{blog.title}}</h4>
+          <h5 class="card-user">{{blog.user.username}}</h5>
+          <p class="card-text">{{blog.content}}</p>
+          {% if blog.user == user %}
+          <a href="{% url 'blog_edit' blog.id%}" class="btn btn-primary">Edit</a>
+          <a href="{% url 'blog_delete' blog.id%}" class="btn btn-danger">Delete</a>
+          {% endif %}
+        </div>
+      </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
